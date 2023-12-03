@@ -1,0 +1,110 @@
+function handleDragOver(event) {
+    event.preventDefault();
+}
+
+function handleDrop(event) {
+    event.preventDefault();
+    const files = event.dataTransfer.files;
+    handleFiles(files);
+}
+
+
+
+
+function handleFileInput(event) {
+    const files = event.target.files;
+    handleFiles(files);
+}
+
+function handleFiles(files) {
+    // Display the file name
+    const fileName = files[0].name;
+    document.getElementById('file-name').innerText = `File Name: ${fileName}`;
+
+    // Perform actions on the file
+    checkForValue(files[0]);
+}
+
+
+
+
+
+
+function triggerFileInput() {
+    document.getElementById('file-input').click();
+}
+
+
+
+
+
+
+
+
+
+
+function checkForValue(file) {
+    const reader = new FileReader();
+
+    reader.onload = function(event) {
+        const fileContent = event.target.result;
+
+        // Check if "123" exists in the file content
+        function compareStringsIgnoreCaseAndSpace(str1, str2) {
+            const formattedStr1 = str1.replace(/\s/g, '').toLowerCase();
+            const formattedStr2 = str2.replace(/\s/g, '').toLowerCase();
+
+            return formattedStr1 === formattedStr2;
+        }
+
+
+
+
+        const ENV00101 = "ENV00101";
+        const isValidCertificate = fileContent.split('\n')[0].substring(0, 8);
+
+        if (compareStringsIgnoreCaseAndSpace(isValidCertificate, ENV00101)){
+
+            addElement("good");
+
+        }else {
+            addElement("bad");
+
+        }
+
+    };
+
+    reader.readAsText(file);
+}
+
+
+
+
+
+
+
+
+
+
+
+let myArray = [];
+
+function addElement(value) {
+    myArray.push(value);
+    messageRuslt();
+}
+
+
+function messageRuslt() {
+    // Get the div element
+    const messageRuslt = document.getElementById('messageRuslt');
+
+    // Clear the existing content
+    messageRuslt.innerHTML = "";
+
+    // Add each array element to the div
+    myArray.forEach(function (element) {
+        messageRuslt.innerHTML += `<p>${element}</p>`;
+    });
+
+}

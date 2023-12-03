@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>edi</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="js.js"></script>
+</head>
+<body class="body">
+<div class="AllData">
+
+    <p>edi מספר רשת</p>
+    <input id="NumCustomer"><br>
+    <p>edi מספר ספק</p>
+    <input id="NumSupplier"><br>
+    <p>מספר תעודה</p>
+    <input id="NumSupdes"><br>
+    <p>מספר תת ספק(אופציונלי)</p>
+    <input id="SecondaryProviderNumber"><br>
+    <br>
+
+    <label for="fileInput">Upload File:</label>
+    <input type="file" id="fileInput" accept=".">
+    <button onclick="searchCertificate()" id="Search">Search</button>
+</div>
+
+
+<script>
+    function searchCertificate() {
+        // Get user-entered values from input boxes
+        const valueBox1 = document.getElementById('box1').value;
+        const valueBox2 = document.getElementById('box2').value;
+        const valueBox3 = document.getElementById('box3').value;
+        const valueBox4 = document.getElementById('box4').value;
+
+        // Get the selected file
+        const fileInput = document.getElementById('fileInput');
+        const selectedFile = fileInput.files[0];
+
+        if (!selectedFile) {
+            alert('Please select a file.');
+            return;
+        }
+
+        const reader = new FileReader();
+
+        reader.onload = function (event) {
+            const fileContent = event.target.result;
+
+            // Check if the value-ENV00101 exists in line 1 of position 1-8
+            if (checkValueInFile(fileContent, 'ENV00101', 1, 1, 8)) {
+                alert('Certificate is valid!');
+            } else {
+                alert('Certificate is incorrect.');
+            }
+        };
+
+        reader.readAsText(selectedFile);
+    }
+
+    function checkValueInFile(fileContent, targetValue, lineIndex, startPosition, endPosition) {
+        const lines = fileContent.split('\n');
+
+        if (lines[lineIndex - 1]) {
+            const lineContent = lines[lineIndex - 1].substring(startPosition - 1, endPosition);
+            return lineContent.includes(targetValue);
+        }
+
+        return false;
+    }
+</script>
+
+</body>
+</html>

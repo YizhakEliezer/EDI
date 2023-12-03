@@ -1,0 +1,166 @@
+let uploadCount = 0;
+
+function handleDragOver(event) {
+    event.preventDefault();
+}
+
+function handleDrop(event) {
+    event.preventDefault();
+    const files = event.dataTransfer.files;
+    handleFiles(files);
+}
+
+function handleFileInput(event) {
+    const files = event.target.files;
+    handleFiles(files);
+}
+
+function handleFiles(files) {
+    // Display the file name
+    const fileName = files[0].name;
+    document.getElementById('file-name').innerText = `File Name: ${fileName}`;
+
+    uploadCount++;
+
+    // Check if it's the second upload
+    // if (uploadCount === 2) {
+    //     // Reload the page after the second upload
+    //     location.reload();
+    // }
+
+    // Perform actions on the file
+    checkForValue(files[0]);
+
+    // Increase the upload count
+
+}
+
+function triggerFileInput() {
+    document.getElementById('file-input').click();
+}
+
+function checkForValue(file) {
+    const reader = new FileReader();
+
+    reader.onload = function(event) {
+        const fileContent = event.target.result;
+
+
+        // Check if "123" exists in the file content
+        function compareStringsIgnoreCaseAndSpace(str1, str2) {
+            const formattedStr1 = str1.replace(/\s/g, '').toLowerCase();
+            const formattedStr2 = str2.replace(/\s/g, '').toLowerCase();
+
+            return formattedStr1 === formattedStr2;
+        }
+
+
+
+        const valueBox1 = document.getElementById('box1').value;
+        const valueBox2 = document.getElementById('box2').value;
+        const valueBox3 = document.getElementById('box3').value;
+        const valueBox4 = document.getElementById('box4').value;
+
+
+
+
+        const ENV00101 = "ENV00101";
+        const nameDocument = "MMDE02L";
+        const nameDocument2 = "MMDE02R";
+        const typeDocument = "SUPDES";
+
+
+        const isValidCertificate = fileContent.split('\n')[0].substring(0, 8);
+        const isValidValueBox1 = fileContent.split('\n')[0].substring(8, 22);
+        const MMDE02L = fileContent.split('\n')[0].substring(23, 32);
+        const MMDE02R = fileContent.split('\n')[0].substring(23, 32);
+        const SUPDES = fileContent.split('\n')[0].substring(33, 46);
+        const isValidValueBox2 = fileContent.split('\n')[0].substring(49, 63);
+
+
+        if (compareStringsIgnoreCaseAndSpace(isValidCertificate, ENV00101) &&
+            compareStringsIgnoreCaseAndSpace(isValidValueBox1, valueBox1) &&
+            (compareStringsIgnoreCaseAndSpace(MMDE02L, nameDocument) ||
+                compareStringsIgnoreCaseAndSpace(MMDE02R, nameDocument2)) &&
+            compareStringsIgnoreCaseAndSpace(SUPDES, typeDocument) &&
+            compareStringsIgnoreCaseAndSpace(isValidValueBox2, valueBox2)
+        ) {
+            addElement("תעודה תקינה");
+        }
+
+
+
+
+        if (!compareStringsIgnoreCaseAndSpace(isValidCertificate, ENV00101)) {
+            addElement('ENV00101-ערך חסר');
+        }
+
+        if (!compareStringsIgnoreCaseAndSpace(isValidValueBox1, valueBox1)) {
+            addElement('מספר רשת שגוי');
+        }
+
+
+        if (!compareStringsIgnoreCaseAndSpace(MMDE02L, nameDocument) &&
+            !compareStringsIgnoreCaseAndSpace(MMDE02R, nameDocument2)) {
+
+            addElement("MMDE02L-ערך חסר ");
+        }
+
+        if (!compareStringsIgnoreCaseAndSpace(SUPDES, typeDocument)) {
+            addElement(' SUPDES-ערך חסר');
+        }
+
+        if (!compareStringsIgnoreCaseAndSpace(isValidValueBox2, valueBox2)) {
+            addElement('מספר ספק שגוי');
+        }
+
+
+
+
+
+    };
+
+    reader.readAsText(file);
+}
+
+
+
+
+
+
+
+
+
+function displayResult(contains123) {
+    const messageResult = document.getElementById('messageRuslt');
+
+    // Append new comment
+    const newComment = contains123 ? 'File contains "123".' : 'File does not contain "123".';
+    messageResult.innerHTML += `<p>${newComment}</p>`;
+}
+
+
+
+
+let myArray = [];
+
+function addElement(value) {
+    myArray.push(value);
+    messageRuslt();
+}
+
+
+function messageRuslt() {
+
+    // Get the div element
+    const messageRuslt = document.getElementById('messageRuslt');
+
+    // Clear the existing content
+    messageRuslt.innerHTML = "";
+
+    // Add each array element to the div
+    myArray.forEach(function (element) {
+        messageRuslt.innerHTML += `<p>${element}</p>`;
+    });
+
+}

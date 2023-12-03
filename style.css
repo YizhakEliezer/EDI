@@ -1,0 +1,191 @@
+.body{
+    font-family: Arial;
+    background-color: #f0f0f3;
+    /*//#e2ddff*/
+    background-image :url("http://localhost:63342/EdiApp/.idea/storenext.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: revert;
+    color: white;
+}
+
+.AllData{
+    background-color: white;
+    position: absolute;
+    left: 67%;
+    top: 3%;
+    width: 30%;
+    height: 50%;
+    border: 1px solid #bdb8b8;
+    border-radius: 4px;
+}
+
+
+
+
+.AllData input{
+    color: #4d4a4a;
+    height: 5%;
+    padding: 11px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 3px;
+    position: relative;
+    top: 100px;
+    left: 50%;
+    text-align: right;
+
+}
+
+
+
+.AllData h1 {
+    position: absolute;
+    left: 70%;
+    top: 20px;
+font-size: 20px;
+    color: #4d4a4a;
+    border-bottom: 2px solid #4CAF50;
+    display: inline;
+    padding-bottom: 5px;
+
+}
+
+
+
+
+
+
+#Search{
+
+    border-color: #bdb8b8;
+    border: 3px solid #011926;
+    color: #011926;
+    background-color: #79acf1;
+    font-size: 15px;
+    width: 60%;
+    height: 10%;
+    position: absolute;
+    top: 179%;
+    left:22%;
+
+}
+
+
+
+
+
+
+
+
+
+#messageRuslt1{
+    background-color: white;
+    position: absolute;
+    left: 25%;
+    top: 10%;
+    width: 40%;
+    height: 70%;
+    border: 1px solid #bdb8b8;
+    border-radius: 4px;
+    color:  #4d4a4a;
+}
+
+#messageRuslt1 h1{
+
+    position: absolute;
+    left: 75%;
+    top: 30px;
+    font-size: 20px;
+    color: #4d4a4a;
+    border-bottom: 2px solid #4CAF50;
+    display: inline;
+    padding-bottom: 5px;
+}
+
+#messageRuslt{
+    position: relative;
+    right: 5%;
+    top: 17%;
+    font-size: 17px;
+    color: #4d4a4a;
+    text-align: right;
+    color: #4CAF50;
+}
+
+
+
+
+
+
+
+
+
+
+.upFile{
+    background-color: white;
+    border: 1px solid #bdb8b8;
+    border-radius: 4px;
+    width: 30%;
+    height: 35%;
+    position: absolute;
+    left: 67%;
+    top: 55%;
+
+}
+
+
+
+
+.upFile h1 {
+    position: absolute;
+    left: 83%;
+    top: 20px;
+    font-size: 20px;
+    color: #4d4a4a;
+    border-bottom: 2px solid #4CAF50;
+    display: inline;
+    padding-bottom: 5px;
+
+}
+
+
+
+
+#drop-zone {
+    border: 2px dashed black;
+    padding: 3px;
+    text-align: center;
+    cursor: pointer;
+    width: 85%;
+    height: 60%;
+    background-color: white;
+    color:  #4d4a4a;
+    position: absolute;
+    left: 6%;
+    top: 31%;
+}
+
+
+
+#drop-zone:hover {
+    border-color: black;
+}
+
+#file-input {
+    display: none;
+}
+
+#upload-icon {
+    font-size: 15px;
+    cursor: pointer;
+    color: #333;
+}
+
+#file-name {
+    margin-top: 50px;
+    font-weight: bold;
+}
+
+
+
