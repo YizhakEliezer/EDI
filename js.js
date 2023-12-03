@@ -65,6 +65,17 @@ function checkForValue(file) {
         }
 
 
+
+
+
+        function tatsapak(tt, sapsk) {
+      if (tt===""){
+           return true;
+         }
+            return false;
+        }
+
+
         fileContentSearch = fileContent;
         const lines = fileContent.split('\n');
         const secondToLastLine = lines[lines.length - 2];
@@ -74,16 +85,17 @@ function checkForValue(file) {
         const valueBox2 = document.getElementById('box2').value;
         const valueBox3 = document.getElementById('box3').value;
         const valueBox4 = document.getElementById('box4').value;
-
+        const valueBox5 = document.getElementById('box5').value;
 
         //line 1
         const ENV00101 = "ENV00101";
         const nameDocument = "MMDE02L";
         const nameDocument2 = "MMDE02R";
         const typeDocument = "SUPDES";
-
         //line 2
         const HEAD0101 = "HEAD0101";
+
+
 
         //line 1
         const generalLineHeader = fileContent.split('\n')[0].substring(0, 8);
@@ -96,27 +108,23 @@ function checkForValue(file) {
         //line 2
         const firstLineDetailsFile = fileContent.split('\n')[1].substring(0, 8);
         const isValidValueBox3 = fileContent.split('\n')[1].substring(8, 22);
+        const timeDocument = fileContent.split('\n')[1].substring(23, 35).trim();
+
+
+        const timeDocumentLength = 12;
+        const booleneLength = timeDocument.length === timeDocumentLength;
+        const year = Number(timeDocument.substring(0, 4));
+        const month = Number(timeDocument.substring(4, 6));
+        const day = Number(timeDocument.substring(6, 8));
+        const hour = Number(timeDocument.substring(8, 10));
+        const minute = Number(timeDocument.substring(10, 12));
 
 
 
+        const isValidValueBox4 = fileContent.split('\n')[1].substring(104, 118);
+        const isValidValueBox5 = fileContent.split('\n')[1].substring(154, 168);
 
 
-
-        const timeDocument = fileContent.split('\n')[1].substring(23, 34);
-        const stringTimeSpaces = timeDocument.replace(/\s/g);
-
-        const year = Number(stringTimeSpaces.substring(0, 4));
-        const month = Number(stringTimeSpaces.substring(4, 6));
-        const day = Number(stringTimeSpaces.substring(6, 8));
-        const hour = Number(stringTimeSpaces.substring(8, 10));
-        const minute = Number(stringTimeSpaces.substring(10, 12));
-
-        alert(timeDocument)
-        // alert(year)
-        // alert(month)
-        // alert(day)
-        // alert(hour)
-        // alert(minute)
 
 
         if (
@@ -133,12 +141,42 @@ function checkForValue(file) {
             compareStringsIgnoreCaseAndSpace(isValidValueBox3, valueBox3) &&
 
 
-            (year => 2023 && month > 1 && month <= 12 && day > 1 && day <= 31 && hour > 0 && hour <= 24 &&
+        booleneLength === true &&
+
+        (year => 2023 && month > 1 && month <= 12 && day > 1 && day <= 31 && hour > 0 && hour <= 24 &&
                 minute > 0 && minute <= 59
+        ) &&
+
+
+            (tatsapak(valueBox4, valueBox3)===true &&
+            compareStringsIgnoreCaseAndSpace(isValidValueBox4, valueBox2) ||
+                tatsapak(valueBox4, valueBox3)===false &&
+            compareStringsIgnoreCaseAndSpace(isValidValueBox4, valueBox4)
             )
-        ) {
+
+            &&
+
+            (tatsapak(valueBox5, isValidValueBox5)===true ||
+                tatsapak(valueBox5, isValidValueBox5)===false &&
+                compareStringsIgnoreCaseAndSpace(isValidValueBox5, valueBox5)
+            )
+
+
+
+
+
+    )
+        {
             addElement("תעודה תקינה");
         }
+
+
+
+
+
+
+
+
 
 
         //line 1
@@ -170,28 +208,62 @@ function checkForValue(file) {
         }
 
 
-
-        
-
-        if (stringTimeSpaces = undefined) {
-            addElement('פרמט תאריך  שגוי');
+        if (booleneLength === false) {
+            addElement('פורמט תאריך  שגוי');
         }
 
         if (year < 2023) {
-            addElement('פרמט תאריך שנה שגוי');
+            addElement('פורמט תאריך שנה שגוי');
         }
         if (month < 1 || month > 12) {
-            addElement('פרמט תאריך חודש שגוי');
+            addElement('פורמט תאריך חודש שגוי');
         }
         if (day < 1 || day > 31) {
-            addElement('פרמט תאריך יום שגוי');
+            addElement('פורמט תאריך יום שגוי');
         }
         if (hour < 0 || hour > 24) {
-            addElement('פרמט תאריך שעה שגוי');
+            addElement('פורמט תאריך שעה שגוי');
         }
         if (minute < 0 || minute > 59) {
-            addElement('פרמט תאריך דקה שגוי');
+            addElement('פורמט תאריך דקה שגוי');
         }
+
+
+        if ( tatsapak(valueBox4, valueBox3)===true && !compareStringsIgnoreCaseAndSpace(isValidValueBox4, valueBox2)) {
+            addElement('מספר ספק משני (שורה 2) שגוי או חסר');
+        }
+
+        if ( tatsapak(valueBox4, valueBox3)===false && ! compareStringsIgnoreCaseAndSpace(isValidValueBox4, valueBox4)) {
+            addElement('מספר  תת ספק  שגוי');
+        }
+
+        if (tatsapak(valueBox5, isValidValueBox5)===false && ! compareStringsIgnoreCaseAndSpace(isValidValueBox5, valueBox5)) {
+            addElement('מספר  סניף  שגוי');
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     };

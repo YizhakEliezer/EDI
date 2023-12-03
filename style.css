@@ -2,7 +2,7 @@
     font-family: Arial;
     background-color: #f0f0f3;
     /*//#e2ddff*/
-    background-image :url("https://yizhakeliezer.github.io/EDI/storenext.png");
+    background-image :url("http://localhost:63342/EdiApp/.idea/storenext.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: revert;
@@ -26,12 +26,12 @@
 .AllData input{
     color: #4d4a4a;
     height: 5%;
-    padding: 11px;
+    padding: 9px;
     background-color: white;
     border: 1px solid black;
     border-radius: 3px;
     position: relative;
-    top: 100px;
+    top: 80px;
     left: 50%;
     text-align: right;
 

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>edi</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="js.js"></script>
+    <script type="text/javascript" src="tt.js"></script>
+    <script type="text/javascript" src="new.js"></script>
+    <script type="text/javascript" src="Search.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body class="body">
+
+
+<div class="AllData">
+    <h1>פרטי התעודה</h1>
+    <input type="text" id="box1" placeholder="(חובה) edi הזן מספר רשת"><br><br>
+    <input type="text" id="box2" placeholder="(חובה) edi  הזן מספר ספק"><br><br>
+    <input type="text" id="box3" placeholder="(חובה) הזן מספר תעודה"><br><br>
+    <input type="text" id="box4" placeholder="הזן מספר תת ספק(אופציונלי)"><br><br>
+    <input type="text" id="box5" placeholder="(אופציונלי) edi הזן מספר סניף"><br><br>
+
+    <button onclick="Search()" id="Search">בדוק</button>
+
+
+    <br><br>
+</div>
+<br>
+
+
+<div id="messageRuslt1">
+    <h1 class="aa">תוצאות הבדיקה</h1>
+    <div id="messageRuslt"></div>
+    <br><br>
+</div>
+<br>
+
+
+<div class="upFile">
+
+    <h1>קבצים</h1>
+
+    <span id="upload-icon" onclick="triggerFileInput()">
+    <div id="drop-zone" ondrop="handleDrop(event)" ondragover="handleDragOver(event)">
+
+
+      <i class="material-icons upload-icon" style="color: #4CAF50;font-size: 50px;position: relative;top:30px">cloud_upload</i>
+        <p style="position: relative;top:10px">גרור קובץ לכאן</p>
+
+
+
+       <div id="file-name" style="position: relative; top: -25px"></div>
+    </div>
+ </span>
+
+
+    <input type="file" id="file-input" onchange="handleFileInput(event)"/>
+
+    <!--    <input type="file" id="file-input" accept=".">-->
+
+</div>
+
+</div>
+
+
+<!--<script>-->
+<!--    // Check if Enter was pressed-->
+<!--    if (keyCode === 13) {-->
+<!--        // Trigger the button click-->
+<!--        document.getElementById('Search').click();-->
+<!--    }-->
+<!--    ;-->
+
+<!--</script>-->
+
+
+</body>
+</html>
+
+
+
+
+
+
