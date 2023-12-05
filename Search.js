@@ -16,11 +16,8 @@ function Search() {
     }
 
 
-
-
-
     function tatsapak(tt, sapsk) {
-        if (tt===""){
+        if (tt === "") {
             return true;
         }
         return false;
@@ -45,7 +42,62 @@ function Search() {
     const typeDocument = "SUPDES";
     //line 2
     const HEAD0101 = "HEAD0101";
+    //line 3
+    const LINE0001 = "LINE0001";
 
+    const LINE0201 = "LINE0201";
+
+    const HEAD9901 = "HEAD9901";
+    const ENV00201 = "ENV00201";
+
+
+
+
+    let boolne=true;
+    function makatimStartOfLine() {
+        for (let i = 3; i < lines.length - 3; i++) {
+            const makatimArryStartOfLine = fileContentSearch.split('\n')[i].substring(0, 8);
+            if (compareStringsIgnoreCaseAndSpace(makatimArryStartOfLine, LINE0201)) {
+
+            }
+
+            else {
+                boolne=false;
+                addElement("תחילית מקט חסר שורה "+(i+1))
+            }
+        }
+    }
+
+
+
+
+
+
+    let boolnemakatim=true;
+    function makatim() {
+        for (let r = 3; r < lines.length - 3; r++) {
+            const makatim = fileContentSearch.split('\n')[r].substring(8, 9);
+            // const whitespaceRegex = /\s/;
+            if (makatim.trim()==="") {
+                boolnemakatim = false;
+                console.log(makatim)
+                addElement("ברקוד חסר שורה " + (r + 1));
+            }
+
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+    makatimStartOfLine()
+    makatim()
 
 
     //line 1
@@ -54,14 +106,13 @@ function Search() {
     const MMDE02L = fileContentSearch.split('\n')[0].substring(23, 32);
     const MMDE02R = fileContentSearch.split('\n')[0].substring(23, 32);
     const SUPDES = fileContentSearch.split('\n')[0].substring(33, 46);
-    const isValidValueBox2 = fileContentSearch.split('\n')[0].substring(49, 63);
+    const isValidValueBox2 = fileContentSearch.split('\n')[0].substring(49, 67);
 
     //line 2
     const firstLineDetailsFile = fileContentSearch.split('\n')[1].substring(0, 8);
     const isValidValueBox3 = fileContentSearch.split('\n')[1].substring(8, 22);
+
     const timeDocument = fileContentSearch.split('\n')[1].substring(23, 35).trim();
-
-
     const timeDocumentLength = 12;
     const booleneLength = timeDocument.length === timeDocumentLength;
     const year = Number(timeDocument.substring(0, 4));
@@ -71,19 +122,28 @@ function Search() {
     const minute = Number(timeDocument.substring(10, 12));
 
 
-
     const isValidValueBox4 = fileContentSearch.split('\n')[1].substring(104, 118);
     const isValidValueBox5 = fileContentSearch.split('\n')[1].substring(154, 168);
 
 
+    //line 3
+    const firstLine3row = fileContentSearch.split('\n')[2].substring(0, 8);
+
+    //makatim
+    // const makatimArry = fileContent.split('\n')[3].substring(0, 8);
+    // const makatim = makatimArry[fileContent.split('\n')[makatimArry.length-2].substring(0, 8)];
+    // alert(makatim)
+
+    const lestline = fileContentSearch.split('\n')[lines.length - 3].substring(0, 8);
+    const lestline1 = fileContentSearch.split('\n')[lines.length - 2].substring(0, 8);
 
 
     if (
         //line 1
         compareStringsIgnoreCaseAndSpace(generalLineHeader, ENV00101) &&
         compareStringsIgnoreCaseAndSpace(isValidValueBox1, valueBox1) &&
-        (compareStringsIgnoreCaseAndSpace(MMDE02L, nameDocument) ||
-            compareStringsIgnoreCaseAndSpace(MMDE02R, nameDocument2)) &&
+        (compareStringsIgnoreCaseAndSpace(nameDocument, MMDE02L) ||
+            compareStringsIgnoreCaseAndSpace(nameDocument2, MMDE02R)) &&
         compareStringsIgnoreCaseAndSpace(SUPDES, typeDocument) &&
         compareStringsIgnoreCaseAndSpace(isValidValueBox2, valueBox2) &&
 
@@ -99,35 +159,38 @@ function Search() {
         ) &&
 
 
-        (tatsapak(valueBox4, valueBox3)===true &&
+        (tatsapak(valueBox4, valueBox3) === true &&
             compareStringsIgnoreCaseAndSpace(isValidValueBox4, valueBox2) ||
-            tatsapak(valueBox4, valueBox3)===false &&
+            tatsapak(valueBox4, valueBox3) === false &&
             compareStringsIgnoreCaseAndSpace(isValidValueBox4, valueBox4)
         )
 
         &&
 
-        (tatsapak(valueBox5, isValidValueBox5)===true ||
-            tatsapak(valueBox5, isValidValueBox5)===false &&
+        (tatsapak(valueBox5, isValidValueBox5) === true ||
+            tatsapak(valueBox5, isValidValueBox5) === false &&
             compareStringsIgnoreCaseAndSpace(isValidValueBox5, valueBox5)
-        )
+        ) &&
+
+        //line 3
+        compareStringsIgnoreCaseAndSpace(firstLine3row, LINE0001) &&
+
+
+        //makatim
+        boolne===true && boolnemakatim===true &&
+
+        compareStringsIgnoreCaseAndSpace(lestline, HEAD9901) &&
+
+        compareStringsIgnoreCaseAndSpace(lestline1, ENV00201)
 
 
 
 
 
-    )
-    {
+
+    ) {
         addElement("תעודה תקינה");
     }
-
-
-
-
-
-
-
-
 
 
     //line 1
@@ -159,38 +222,53 @@ function Search() {
     }
 
 
-    if (booleneLength === false) {
+    if (booleneLength === false || isNaN(booleneLength)) {
         addElement('פורמט תאריך  שגוי');
     }
 
-    if (year < 2023) {
+    if (year < 2023 || isNaN(year)) {
         addElement('פורמט תאריך שנה שגוי');
     }
-    if (month < 1 || month > 12) {
+    if (month < 1 || month > 12 || isNaN(month)) {
         addElement('פורמט תאריך חודש שגוי');
     }
-    if (day < 1 || day > 31) {
+    if (day < 1 || day > 31 || isNaN(day)) {
         addElement('פורמט תאריך יום שגוי');
     }
-    if (hour < 0 || hour > 24) {
+    if (hour < 0 || hour > 24 || isNaN(hour)) {
         addElement('פורמט תאריך שעה שגוי');
     }
-    if (minute < 0 || minute > 59) {
+    if (minute < 0 || minute > 59 || isNaN(minute)) {
         addElement('פורמט תאריך דקה שגוי');
     }
 
 
-    if ( tatsapak(valueBox4, valueBox3)===true && !compareStringsIgnoreCaseAndSpace(isValidValueBox4, valueBox2)) {
+    if (tatsapak(valueBox4, valueBox3) === true && !compareStringsIgnoreCaseAndSpace(isValidValueBox4, valueBox2)) {
         addElement('מספר ספק משני (שורה 2) שגוי או חסר');
     }
 
-    if ( tatsapak(valueBox4, valueBox3)===false && ! compareStringsIgnoreCaseAndSpace(isValidValueBox4, valueBox4)) {
+    if (tatsapak(valueBox4, valueBox3) === false && !compareStringsIgnoreCaseAndSpace(isValidValueBox4, valueBox4)) {
         addElement('מספר  תת ספק  שגוי');
     }
 
-    if (tatsapak(valueBox5, isValidValueBox5)===false && ! compareStringsIgnoreCaseAndSpace(isValidValueBox5, valueBox5)) {
+    if (tatsapak(valueBox5, isValidValueBox5) === false && !compareStringsIgnoreCaseAndSpace(isValidValueBox5, valueBox5)) {
         addElement('מספר  סניף  שגוי');
     }
+
+
+    //line 3
+    if (!compareStringsIgnoreCaseAndSpace(firstLine3row, LINE0001)) {
+        addElement('LINE0001-ערך חסר');
+    }
+
+    if (! compareStringsIgnoreCaseAndSpace(lestline, HEAD9901)) {
+        addElement('HEAD9901-ערך חסר');
+    }
+
+    if (!  compareStringsIgnoreCaseAndSpace(lestline1, ENV00201)) {
+        addElement('ENV00201-ערך חסר');
+    }
+
 
 
 
