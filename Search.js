@@ -53,17 +53,17 @@ function Search() {
 
 
 
-    let boolne=true;
+    let boolne = true;
+
     function makatimStartOfLine() {
         for (let i = 3; i < lines.length - 3; i++) {
             const makatimArryStartOfLine = fileContentSearch.split('\n')[i].substring(0, 8);
-            if (compareStringsIgnoreCaseAndSpace(makatimArryStartOfLine, LINE0201)) {
+            console.log(makatimArryStartOfLine)
+            if (compareStringsIgnoreCaseAndSpace(makatimArryStartOfLine, LINE0201) ) {
 
-            }
-
-            else {
-                boolne=false;
-                addElement("תחילית מקט חסר שורה "+(i+1))
+            } else {
+                boolne = false;
+                addElement("תחילית מקט חסר שורה " + (i + 1))
             }
         }
     }
@@ -73,24 +73,47 @@ function Search() {
 
 
 
-    let boolnemakatim=true;
+
+    let boolnemakatim = true;
+
     function makatim() {
         for (let r = 3; r < lines.length - 3; r++) {
+
             const makatim = fileContentSearch.split('\n')[r].substring(8, 9);
-            // const whitespaceRegex = /\s/;
-            if (makatim.trim()==="") {
+            const makatim2 = fileContentSearch.split('\n')[r].substring(9, 22);
+            const makatim3 = makatim2;
+
+
+            if (makatim.trim() === "") {
                 boolnemakatim = false;
-                console.log(makatim)
                 addElement("ברקוד חסר שורה " + (r + 1));
+
+            } else {
+
+                for (let i = 0; i < makatim3.length; i++) {
+
+                    if (makatim3[i].trim() === "") {
+
+                        for (let j = i + 1; j < makatim3.length; j++) {
+                            if (makatim3[j].trim() === "") {
+
+                            } else {
+                                boolnemakatim = false;
+                                addElement("ברקוד חסר שורה " + (r + 1));
+                                break;
+                            }
+                            break;
+                        }
+
+                    }
+
+                }
+
             }
 
         }
+
     }
-
-
-
-
-
 
 
 
@@ -98,7 +121,6 @@ function Search() {
 
     makatimStartOfLine()
     makatim()
-
 
     //line 1
     const generalLineHeader = fileContentSearch.split('\n')[0].substring(0, 8);
@@ -129,10 +151,7 @@ function Search() {
     //line 3
     const firstLine3row = fileContentSearch.split('\n')[2].substring(0, 8);
 
-    //makatim
-    // const makatimArry = fileContent.split('\n')[3].substring(0, 8);
-    // const makatim = makatimArry[fileContent.split('\n')[makatimArry.length-2].substring(0, 8)];
-    // alert(makatim)
+
 
     const lestline = fileContentSearch.split('\n')[lines.length - 3].substring(0, 8);
     const lestline1 = fileContentSearch.split('\n')[lines.length - 2].substring(0, 8);
@@ -177,15 +196,11 @@ function Search() {
 
 
         //makatim
-        boolne===true && boolnemakatim===true &&
+        boolne === true && boolnemakatim === true &&
 
         compareStringsIgnoreCaseAndSpace(lestline, HEAD9901) &&
 
         compareStringsIgnoreCaseAndSpace(lestline1, ENV00201)
-
-
-
-
 
 
     ) {
@@ -261,15 +276,13 @@ function Search() {
         addElement('LINE0001-ערך חסר');
     }
 
-    if (! compareStringsIgnoreCaseAndSpace(lestline, HEAD9901)) {
+    if (!compareStringsIgnoreCaseAndSpace(lestline, HEAD9901)) {
         addElement('HEAD9901-ערך חסר');
     }
 
-    if (!  compareStringsIgnoreCaseAndSpace(lestline1, ENV00201)) {
+    if (!compareStringsIgnoreCaseAndSpace(lestline1, ENV00201)) {
         addElement('ENV00201-ערך חסר');
     }
-
-
 
 
 

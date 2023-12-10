@@ -2,7 +2,7 @@
     font-family: Arial;
     background-color: #f0f0f3;
     /*//#e2ddff*/
-    background-image :url("https://yizhakeliezer.github.io/EDI/storenext.png");
+    background-image :url("http://localhost:63342/EDI/.idea/file/storenext.png");
     background-size: 16%;
     background-repeat: no-repeat;
     background-position: revert;
@@ -83,7 +83,7 @@
 
 .AllData h1 {
     position: absolute;
-    left: 70%;
+    left: 71%;
     top: 1%;
 font-size: 20px;
     color: #4d4a4a;
@@ -110,6 +110,7 @@ font-size: 20px;
     position: absolute;
     top: 185%;
     left:20%;
+    display: none;
 
 }
 
@@ -234,11 +235,11 @@ font-size: 20px;
     display: none;
 }
 
-#upload-icon {
-    font-size: 15px;
-    cursor: pointer;
-    color: #333;
-}
+/*#upload-icon {*/
+/*    font-size: 15px;*/
+/*    cursor: pointer;*/
+/*    color: #333;*/
+/*}*/
 
 #file-name {
     margin-top: 50px;
@@ -246,5 +247,18 @@ font-size: 20px;
 }
 
 
+#upload-icon {
+    position: absolute;
+    right: 40%;
+    bottom: 27%;
+    width: 70px;
+    height: 30px;
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #888181;
+    border-radius: 4px;
+}
 
-
+.files{
+    top: 500px;
+}
