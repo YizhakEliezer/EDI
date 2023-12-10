@@ -35,11 +35,14 @@
     </div>
 
     <div class="inputBox">
-        <input type="text" id="box1" placeholder="(חובה) edi הזן מספר רשת" onkeydown="checkEnter(event)"><br><br><br>
-        <input type="text" id="box2" placeholder="(חובה) edi  הזן מספר ספק" onkeydown="checkEnter(event)"><br><br><br>
-        <input type="text" id="box3" placeholder="(חובה) הזן מספר תעודה" onkeydown="checkEnter(event)"><br><br><br>
-        <input type="text" id="box4" placeholder="הזן מספר תת ספק(אופציונלי)" onkeydown="checkEnter(event)"><br><br><br>
-        <input type="text" id="box5" placeholder="(אופציונלי) edi הזן מספר סניף"
+        <input type="text" id="retailer" placeholder="(חובה) edi הזן מספר רשת"
+               onkeydown="checkEnter(event)"><br><br><br>
+        <input type="text" id="supplier" placeholder="(חובה) edi  הזן מספר ספק"
+               onkeydown="checkEnter(event)"><br><br><br>
+        <input type="text" id="message" placeholder="(חובה) הזן מספר תעודה" onkeydown="checkEnter(event)"><br><br><br>
+        <input type="text" id="supplierSubnetNumber" placeholder="הזן מספר תת ספק(אופציונלי)"
+               onkeydown="checkEnter(event)"><br><br><br>
+        <input type="text" id="branchRetailer" placeholder="(אופציונלי) edi הזן מספר סניף"
                onkeydown="checkEnter(event)"><br><br><br>
     </div>
 
@@ -90,15 +93,13 @@
     <input type="file" id="file-input" onchange="handleFileInput(event)"/>
 
 
-
-
 </div>
 
 
 <script>
     function checkEnter(event) {
         if (event.key === 'Enter') {
-            Search();
+            chekFile();
         }
     }
 </script>
