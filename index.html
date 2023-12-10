@@ -16,34 +16,35 @@
     <h1>פרטי התעודה</h1>
 
     <div class="selectType">
-    <label for="fileStructure">מבנה המסר</label>
-    <select name="menuTypeStructure" id="menuTypeStructure">
-        <option value="fileStructure">מבנה המסר</option>
-        <option value="hashavshevet">חשבשבת</option>
-        <option value="fletFile">flet file</option>
+        <label for="fileStructure">מבנה המסר</label>
+        <select name="menuTypeStructure" id="menuTypeStructure">
+            <option value="fileStructure">מבנה המסר</option>
+            <option value="hashavshevet">חשבשבת</option>
+            <option value="fletFile">flet file</option>
 
-    </select>
+        </select>
 
-    <label for="fileType">סוג המסר</label>
-    <select name="menuTypefile" id="menuTypefile">
-        <option value="fileType">סוג המסר</option>
-        <option value="supdes">משלוח</option>
-        <option value="order">הזמנה</option>
-        <option value="mmdr">כניסה</option>
-        <option value="return" >החזרה</option>
-    </select>
+        <label for="fileType">סוג המסר</label>
+        <select name="menuTypefile" id="menuTypefile">
+            <option value="fileType">סוג המסר</option>
+            <option value="supdes">משלוח</option>
+            <option value="order">הזמנה</option>
+            <option value="mmdr">כניסה</option>
+            <option value="return">החזרה</option>
+        </select>
     </div>
 
-<div class="inputBox">
-    <input  type="text" id="box1"  placeholder="(חובה) edi הזן מספר רשת" onkeydown="checkEnter(event)"><br><br><br>
-    <input type="text" id="box2" placeholder="(חובה) edi  הזן מספר ספק" onkeydown="checkEnter(event)"><br><br><br>
-    <input type="text" id="box3" placeholder="(חובה) הזן מספר תעודה" onkeydown="checkEnter(event)"><br><br><br>
-    <input type="text" id="box4" placeholder="הזן מספר תת ספק(אופציונלי)" onkeydown="checkEnter(event)"><br><br><br>
-    <input type="text" id="box5" placeholder="(אופציונלי) edi הזן מספר סניף" onkeydown="checkEnter(event)"><br><br><br>
-</div>
+    <div class="inputBox">
+        <input type="text" id="box1" placeholder="(חובה) edi הזן מספר רשת" onkeydown="checkEnter(event)"><br><br><br>
+        <input type="text" id="box2" placeholder="(חובה) edi  הזן מספר ספק" onkeydown="checkEnter(event)"><br><br><br>
+        <input type="text" id="box3" placeholder="(חובה) הזן מספר תעודה" onkeydown="checkEnter(event)"><br><br><br>
+        <input type="text" id="box4" placeholder="הזן מספר תת ספק(אופציונלי)" onkeydown="checkEnter(event)"><br><br><br>
+        <input type="text" id="box5" placeholder="(אופציונלי) edi הזן מספר סניף"
+               onkeydown="checkEnter(event)"><br><br><br>
+    </div>
 
-    <button onclick="Search()" id="Search">בדוק</button>
 
+    <!--    <button onclick="Search()" id="Search">בדוק</button>-->
 
     <br><br>
 </div>
@@ -62,30 +63,36 @@
 
     <h1>קבצים</h1>
 
-    <span id="upload-icon" onclick="triggerFileInput()">
-    <div id="drop-zone" ondrop="handleDrop(event)" ondragover="handleDragOver(event)" >
+
+    <div class="files">
+        <div id="drop-zone" ondrop="handleDrop(event)" ondragover="handleDragOver(event)">
+
+            <i class="material-icons upload-icon" style="color: #4CAF50;font-size: 50px;position: relative;top:10px">cloud_upload</i>
+            <p style="position: relative;top:-10px">גרור קובץ לכאן
+                <br>או</p>
+
+            <button id="upload-icon" onclick="triggerFileInput()">בחר קובץ
 
 
-      <i class="material-icons upload-icon" style="color: #4CAF50;font-size: 50px;position: relative;top:30px">cloud_upload</i>
-        <p style="position: relative;top:10px">גרור קובץ לכאן</p>
+            </button>
 
 
+            <div id="file-name" style=" display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 1vh;
+      color: #8a7d7d"></div>
+        </div>
 
-       <div id="file-name" style="position: relative; top: -25px"></div>
     </div>
- </span>
 
 
-    <input type="file" id="file-input" onchange="handleFileInput(event)" />
+    <input type="file" id="file-input" onchange="handleFileInput(event)"/>
 
-    <!--    <input type="file" id="file-input" accept=".">-->
 
-</div>
 
 
 </div>
-
-
 
 
 <script>
@@ -95,8 +102,6 @@
         }
     }
 </script>
-
-
 
 
 </body>
