@@ -42,10 +42,26 @@ function checkForValue(file) {
     reader.onload = function (event) {
         const fileContent = event.target.result;
         fileContentSearch = fileContent;
-        chekFile();
+
+        var selectedOption = document.getElementById("menuTypeStructure").value;
+        if (selectedOption === "fileStructure") {
+            alert("לא נבחר סוג המסר לבדיקה");
+        } else if (selectedOption === "fletFile") {
+            chekFileFletSupdes();
+        }
+        else if (selectedOption === "hashavshevt") {
+            chekFileHashavshevtSupdes();
+        }
+
     };
     reader.readAsText(file);
 }
+
+
+
+
+
+
 
 
 //add to myArray result variable and chek if the file is fix
@@ -93,7 +109,7 @@ function messageRusltFix() {
 
 
 //function to chekFile
-function chekFile() {
+function chekFileFletSupdes() {
     myArray = [];
 
     function compareStringsIgnoreCaseAndSpace(valueFromFile, constantValue) {
@@ -137,6 +153,9 @@ function chekFile() {
     const HEAD0101 = "HEAD0101";
     //constant values line 3
     const LINE0001 = "LINE0001";
+    //constant values line 4
+    const LINE0101 = "LINE0101";
+
 
     //constant values Barcode
     const LINE0201 = "LINE0201";
@@ -147,12 +166,12 @@ function chekFile() {
     const ENV00201 = "ENV00201";
 
 
+
     let constantValuesBarcodeBoolean = true;
 
     function constantValuesBarcode() {
         for (let i = 3; i < lines.length - 3; i++) {
             const BarcodeArryStartOfLine = fileContentSearch.split('\n')[i].substring(0, 8);
-            console.log(BarcodeArryStartOfLine)
             if (compareStringsIgnoreCaseAndSpace(BarcodeArryStartOfLine, LINE0201)) {
 
             } else {
@@ -444,10 +463,246 @@ function chekFile() {
 
 
 
+}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function chekFileHashavshevtSupdes(){
+    myArray = [];
+
+    function compareStringsIgnoreCaseAndSpace(valueFromFile, constantValue) {
+        // Check if value is defined and not empty
+        if (valueFromFile === undefined || valueFromFile.trim() === "") {
+            return false;
+        }
+        // Remove spaces from both the value and target strings
+        const formattedValue = valueFromFile.trim();
+        const formattedTarget = constantValue.trim();
+
+        // Check if the formatted value is exactly equal to the formatted target
+        return formattedTarget === formattedValue;
+    }
+
+
+
+
+    const lines = fileContentSearch.split('\n');
+    const secondToLastLine = lines[lines.length - 2];
+
+    const numRetailer = document.getElementById('retailer').value;
+    const numSupplier = document.getElementById('supplier').value;
+    const numMessage = document.getElementById('message').value;
+    const numSupplierSubnetNumber = document.getElementById('supplierSubnetNumber').value;
+    const numBranchRetailer = document.getElementById('branchRetailer').value;
+
+
+
+
+    let numSupplierBoolean = true;
+    let isValidNumRetailerBoolean = true;
+    let isValidNumSupplierSubnetNumberBoolean = true;
+    let numSupplierSubnetNumberBoolean = true;
+    let numpPackagingBoolean = true;
+    let barcodeBoolean = true;
+    let matchNumBranchBoolean = true;
+    let numBranch1Boolean = true;
+    let numBranch2Boolean = true;
+    let pormatTime1Boolean = true;
+    let pormatTime2Boolean = true;
+    let dayDataTimeBoolean = true;
+    let monthDataTimeBoolean = true;
+    let yearDataTimeBoolean = true;
+
+    let dayDataTime2Boolean = true;
+    let monthDataTime2Boolean = true;
+    let yearDataTime2Boolean = true;
+    let numMessageBoolean = true;
+
+    for (let i = 0; i < lines.length; i++) {
+        const isValidNumSupplier = fileContentSearch.split('\n')[i].substring(10, 23);
+        const isValidNumSupplierSubnetNumber = fileContentSearch.split('\n')[i].substring(24, 37);
+        const isValidNumRetailer = fileContentSearch.split('\n')[i].substring(38, 51);
+        const numpPackaging = fileContentSearch.split('\n')[i].substring(66, 82);
+        const barcode = fileContentSearch.split('\n')[i].substring(87, 102);
+        const numBranch1 = fileContentSearch.split('\n')[i].substring(103, 133);
+        const numBranch2 = fileContentSearch.split('\n')[i].substring(134, 142);
+        const dataTime = fileContentSearch.split('\n')[i].substring(143, 151);
+        const dataTime2 = fileContentSearch.split('\n')[i].substring(159, 167);
+
+        const dayDataTime = Number(dataTime.substring(0, 2));
+        const monthDataTime = Number(dataTime.substring(3, 5));
+        const yearDataTime = Number(dataTime.substring(6, 8));
+
+        const dayDataTime2 = Number(dataTime2.substring(0, 2));
+        const monthDataTime2 = Number(dataTime2.substring(3, 5));
+        const yearDataTime2 = Number(dataTime2.substring(6, 8));
+
+
+
+        const isValidnumMessage = fileContentSearch.split('\n')[i].substring(151, 158);
+
+
+
+
+        if (!compareStringsIgnoreCaseAndSpace(isValidNumSupplier, numSupplier)) {
+            numSupplierBoolean = false;
+            addElement("מספר ספק שגוי שורה "+ (i + 1));
+
+        }
+
+        if (!compareStringsIgnoreCaseAndSpace(isValidNumRetailer, numRetailer)) {
+            isValidNumRetailerBoolean = false;
+            addElement("מספר רשת שגוי שורה "+ (i + 1));
+        }
+
+
+
+        if (numSupplierSubnetNumber===""){
+            if (!compareStringsIgnoreCaseAndSpace(isValidNumSupplierSubnetNumber, numSupplier)) {
+                isValidNumSupplierSubnetNumberBoolean = false;
+                addElement("מספר ספק משני שגוי שורה " + (i + 1));
+            }
+                }
+
+
+
+        if (numSupplierSubnetNumber!=""){
+            if (!compareStringsIgnoreCaseAndSpace(isValidNumSupplierSubnetNumber, numSupplierSubnetNumber)) {
+                numSupplierSubnetNumberBoolean = false;
+                addElement("מספר תת ספק  שגוי שורה "+ (i + 1));
+            }
+        }
+
+        if (numpPackaging.trim()===""){
+             numpPackagingBoolean = false;
+                addElement("מספר אריזות חסר שורה "+ (i + 1));
+        }
+
+        if (barcode.trim()===""){
+            matchNumBranchBoolean = false;
+            addElement("ברקוד חסר שורה "+ (i + 1));
+        }
+
+
+        if (numBranch1.trim()!= numBranch2.trim()){
+            numSupplierSubnetNumberBoolean = false;
+            addElement("חוסר התאמה במספר מפתח בשורה "+ (i + 1));
+        }
+
+
+
+        if (numBranch1.trim()===""){
+            numBranch1Boolean = false;
+            addElement("מספר מפתח חסר שורה "+ (i + 1));
+        }
+
+        if (numBranch2.trim()===""){
+            numBranch2Boolean = false;
+            addElement("מספר מפתח חסר שורה "+ (i + 1));
+        }
+
+
+
+        if (dataTime.trim().length!=8 || String(dataTime.substring(2, 3))!="/" || String(dataTime.substring(5, 6))!="/"){
+            pormatTime1Boolean=false;
+            addElement("פורמט תאריך משלוח שגוי "+ (i + 1));
+        }
+
+
+        if (dataTime2.trim().length!=8 || String(dataTime2.substring(2, 3))!="/" || String(dataTime2.substring(5, 6))!="/"){
+            pormatTime2Boolean=false;
+            addElement("פורמט תאריך תוקף שגוי "+ (i + 1));
+        }
+
+
+        if (dayDataTime<0 || dayDataTime>31){
+            dayDataTimeBoolean=false;
+            addElement("פורמט תאריך משלוח שדה -יום, שגוי. שורה "+ (i + 1));
+        }
+
+        if (monthDataTime<1 || monthDataTime>12){
+            monthDataTimeBoolean=false;
+            addElement("פורמט תאריך משלוח שדה -חודש, שגוי. שורה "+ (i + 1));
+        }
+        if (yearDataTime<23 ){
+            yearDataTimeBoolean=false;
+            addElement("פורמט תאריך משלוח שדה -שנה, שגוי. שורה "+ (i + 1));
+        }
+
+
+
+
+        if (dayDataTime2<0 || dayDataTime2>31){
+            dayDataTime2Boolean=false;
+            addElement("פורמט תאריך תוקף שדה -יום, שגוי. שורה "+ (i + 1));
+        }
+
+        if (monthDataTime2<1 || monthDataTime2>12){
+            monthDataTime2Boolean=false;
+            addElement("פורמט תאריך תוקף שדה -חודש, שגוי. שורה "+ (i + 1));
+        }
+        if (yearDataTime2<23 ){
+            yearDataTime2Boolean=false;
+            addElement("פורמט תאריך תוקף שדה -שנה, שגוי. שורה "+ (i + 1));
+        }
+
+
+
+
+        if (!compareStringsIgnoreCaseAndSpace(isValidnumMessage, numMessage)) {
+            numMessageBoolean = false;
+            addElement("מספר תעודה שגוי שורה "+ (i + 1));
+
+        }
+
+
+
+
+
+    }
+
+
+
+
+
+
+// Check the flag to determine if all elements were equal
+    if (numSupplierBoolean && isValidNumRetailerBoolean && isValidNumSupplierSubnetNumberBoolean
+        && numSupplierSubnetNumberBoolean
+        && numpPackagingBoolean
+        && barcodeBoolean
+        && matchNumBranchBoolean
+        && numBranch2Boolean
+        && numBranch1Boolean
+        && pormatTime1Boolean
+        && pormatTime2Boolean
+        && dayDataTimeBoolean
+        && monthDataTimeBoolean
+        && yearDataTimeBoolean
+        && dayDataTime2Boolean
+        && monthDataTime2Boolean
+        && yearDataTime2Boolean
+        && numMessageBoolean
+    )
+    {
+        addElement("תעודה תקינה");
+    }
 
 
 }
+
 
 
 
