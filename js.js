@@ -45,7 +45,7 @@ function checkForValue(file) {
 
         var selectedOption = document.getElementById("menuTypeStructure").value;
         if (selectedOption === "fileStructure") {
-            alert("לא נבחר סוג המסר לבדיקה");
+            alert("לא נבחר מבנה המסר לבדיקה");
         } else if (selectedOption === "fletFile") {
             chekFileFletSupdes();
         }
