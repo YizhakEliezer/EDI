@@ -16,10 +16,10 @@
     <h1>פרטי התעודה</h1>
 
     <div class="selectType">
-        <label for="fileStructure">מבנה המסר</label>
+        <label for="fileStructure" >מבנה המסר</label>
         <select name="menuTypeStructure" id="menuTypeStructure">
             <option value="fileStructure">מבנה המסר</option>
-            <option value="hashavshevet">חשבשבת</option>
+            <option value="hashavshevt">חשבשבת</option>
             <option value="fletFile">flet file</option>
 
         </select>
@@ -99,7 +99,18 @@
 <script>
     function checkEnter(event) {
         if (event.key === 'Enter') {
-            chekFile();
+            // chekFileFletSupdes();
+            // chekFileHashavshevtSupdes()
+            var selectedOption = document.getElementById("menuTypeStructure").value;
+            if (selectedOption === "fileStructure") {
+                alert("לא נבחר סוג המסר לבדיקה");
+            } else if (selectedOption === "fletFile") {
+                chekFileFletSupdes();
+            }
+            else if (selectedOption === "hashavshevt") {
+                chekFileHashavshevtSupdes();
+            }
+
         }
     }
 </script>
