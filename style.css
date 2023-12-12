@@ -2,8 +2,8 @@
     font-family: Arial;
     background-color: #f0f0f3;
     /*//#e2ddff*/
-    background-image :url("https://yizhakeliezer.github.io/EDI/storenext.png");
-    background-size: 16%;
+    background-image :url("http://localhost:63342/EDI/.idea/file/storenext.png");
+    background-size: 200px;
     background-repeat: no-repeat;
     background-position: revert;
     color: white;
@@ -13,9 +13,9 @@
 .AllData{
     background-color: white;
     position: absolute;
-    left: 67%;
+    right:45px;
     top: 20px;
-    width: 30%;
+    width: 450px;
     height: 350px;
     border: 1px solid #bdb8b8;
     border-radius: 4px;
@@ -26,7 +26,7 @@
 
 
 .inputBox input{
-    color: #664793;
+    color:  #2d3cc7;
     font-weight: bold;
     height: 1%;
     padding:15px;
@@ -49,7 +49,7 @@
 
 
 #menuTypeStructure{
-    color:  #664793;
+    color: #2d3cc7;
     font-weight: bold;
     height: 8%;
     width: 20%;
@@ -66,7 +66,8 @@
 
 #menuTypefile{
     /*#79acf1*/
-    color:  #664793;
+    /*#664793*/
+    color: #2d3cc7;
     font-weight: bold;
     height: 8%;
     width: 20%;
@@ -126,16 +127,19 @@ font-size: 20px;
 
 #messageRuslt1{
     background-color: white;
-    position: relative;
-    left: 35%;
-    top: -4px;
-    width: 30%;
-    height: 50%;
+    position: absolute;
+    right: 511px;
+    top: 20px;
+    width: 450px;
+    height: 350px;
     border: 1px solid #bdb8b8;
     border-radius: 4px;
     color:  #4d4a4a;
-    overflow: hidden;
+    overflow: auto;
 }
+
+
+
 
 #messageRuslt1 h1{
 
@@ -153,14 +157,18 @@ font-size: 20px;
 
 #messageRuslt{
     position: relative;
-    right: 30%;
-    top: 30px;
-    font-size: 15px;
+    /*right: 115px;*/
+    top: 45px;
+    font-size: 17px;
     color: #4d4a4a;
     text-align: right;
     color: #e54141;
     text-indent: 0;
+    text-align: center;
+
 }
+
+
 
 
 
@@ -177,11 +185,11 @@ font-size: 20px;
     background-color: white;
     border: 1px solid #bdb8b8;
     border-radius: 4px;
-    width: 30%;
-    height: 35%;
     position: absolute;
-    left: 67%;
+    right:45px;
     top: 385px;
+    width: 450px;
+    height: 250px;
 
 }
 

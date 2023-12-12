@@ -101,7 +101,7 @@ function messageRusltFix() {
     messageRuslt.innerHTML = "";
 
     myArray.forEach(function (element) {
-        messageRuslt.innerHTML += `<p style="color: #79acf1;font-size: 25px;position: relative;right: 37px">${element}</p>`;
+        messageRuslt.innerHTML += `<p style="color: #79acf1;font-size: 25px;position: relative;right: 37px;top: 50px">${element}</p>`;
     });
 
 }
@@ -666,6 +666,7 @@ function chekFileHashavshevtSupdes(){
             addElement("מספר תעודה שגוי שורה "+ (i + 1));
 
         }
+
 
 
 
