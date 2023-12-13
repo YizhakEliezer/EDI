@@ -101,7 +101,7 @@ function messageRusltFix() {
     messageRuslt.innerHTML = "";
 
     myArray.forEach(function (element) {
-        messageRuslt.innerHTML += `<p style="color: #79acf1;font-size: 25px;position: relative;right: 25px;top: 50px">${element}</p>`;
+        messageRuslt.innerHTML += `<p style="color: #79acf1;font-size: 25px;position: relative;text-align: center;">${element}</p>`;
     });
 
 }
