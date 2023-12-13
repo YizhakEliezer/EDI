@@ -530,7 +530,7 @@ function chekFileHashavshevtSupdes(){
     let yearDataTime2Boolean = true;
     let numMessageBoolean = true;
 
-    for (let i = 0; i < lines.length; i++) {
+    for (let i = 0; i < lines.length-1; i++) {
         const isValidNumSupplier = fileContentSearch.split('\n')[i].substring(10, 23);
         const isValidNumSupplierSubnetNumber = fileContentSearch.split('\n')[i].substring(24, 37);
         const isValidNumRetailer = fileContentSearch.split('\n')[i].substring(38, 51);
