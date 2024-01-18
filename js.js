@@ -34,7 +34,7 @@ function handleFileInput(event) {
 
 //name file
 function handleFiles(files) {
-    const allowedTypes = ['text/plain','','application/msword'];
+    const allowedTypes = ['text/plain','','application/msword','application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
     console.log(files[0].type)
     if (allowedTypes.includes(files[0].type)) {
     } else {
