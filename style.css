@@ -1,8 +1,7 @@
-.body{
+.body {
     font-family: Arial;
     background-color: #f0f0f3;
-    /*//#e2ddff*/
-    background-image :url("https://yizhakeliezer.github.io/EDI/storenext.png");
+    background-image: url("https://yizhakeliezer.github.io/EDI7/storenext.png");
     background-size: 200px;
     background-repeat: no-repeat;
     background-position: revert;
@@ -10,26 +9,83 @@
 
 }
 
-.AllData{
+.AllData {
     background-color: white;
     position: absolute;
-    right:45px;
+    right: 45px;
     top: 20px;
     width: 450px;
     height: 350px;
     border: 1px solid #bdb8b8;
     border-radius: 4px;
-
+    display: none;
 
 }
+#fileChek{
+    /*background-color: #4f4c4c;*/
+    /*color: #d0d0d0;*/
+    background-color: #fffcfc;
+    color: #0056ff;
+    text-align: left;
+    position: absolute;
+    top: 23px;
+    right: 1100px;
+    width:500px;
+    height:800px;
+    /*border: 2px solid #5facbb;*/
+    border-radius: 4px;
+    border: 5px solid #d5d2d2;
+    overflow: auto;
+    white-space: pre;
+  display: none;
+}
+
+/*#resultsFile {*/
+/*    background-color: #ffffff;*/
+/*    position: absolute;*/
+/*    right:520px;*/
+/*    top: 20px;*/
+/*    width:500px;*/
+/*    height:800px;*/
+/*    border: 10px solid #a8bceb;*/
+/*    border-radius: 4px;*/
+/*    display: none;*/
+/*    text-align: right;*/
+/*}*/
+
+/*#resultsFile li{*/
+/*    color: #413939;*/
+/*    list-style-type: none;*/
+/*    font-weight: bold;*/
+/*    font-size: 20px;*/
+/*    position: relative;*/
+/*    top: 80px;*/
+/*    right: 30px;*/
+/*    margin-bottom: 20px;*/
+/*}*/
 
 
+/*#resultsFile h1{*/
+/*    position: absolute;*/
+/*    left: 36%;*/
+/*    top: 2%;*/
+/*    font-size: 30px;*/
+/*    color: #4a4a4d;*/
+/*border-bottom: 2px solid #4CAF50;*/
+/*display: inline;*/
+/*    padding-bottom: 3px;*/
+/*}*/
 
-.inputBox input{
-    color:  #2d3cc7;
+
+#inputBoxData{
+    display: none;
+}
+
+.inputBox input {
+    color: #2d3cc7;
     font-weight: bold;
     height: 1%;
-    padding:15px;
+    padding: 15px;
     background-color: white;
     border: 1px solid black;
     border-radius: 3px;
@@ -42,13 +98,14 @@
 
 
 
-.inputBox{
+
+.inputBox {
     position: absolute;
     top: 70px;
 }
 
 
-#menuTypeStructure{
+#menuTypeStructure {
     color: #2d3cc7;
     font-weight: bold;
     height: 8%;
@@ -64,9 +121,7 @@
 }
 
 
-#menuTypefile{
-    /*#79acf1*/
-    /*#664793*/
+#menuTypefile {
     color: #2d3cc7;
     font-weight: bold;
     height: 8%;
@@ -81,84 +136,54 @@
 }
 
 
-
-
-
 .AllData h1 {
     position: absolute;
     left: 71%;
     top: 1%;
-font-size: 20px;
-    color: #4d4a4a;
-    border-bottom: 2px solid #4CAF50;
-    display: inline;
-    padding-bottom: 5px;
-
-}
-
-
-
-
-
-
-#Search{
-
-    border-color: #bdb8b8;
-    border: 2px solid #011926;
-    color: #011926;
-    background-color: #79acf1;
-    font-size: 15px;
-    width: 60%;
-    height: 10%;
-    position: absolute;
-    top: 185%;
-    left:20%;
-    display: none;
-
-}
-
-
-
-
-
-
-
-
-
-#messageRuslt1{
-    background-color: white;
-    position: absolute;
-    right: 511px;
-    top: 20px;
-    width: 450px;
-    height: 350px;
-    border: 1px solid #bdb8b8;
-    border-radius: 4px;
-    color:  #4d4a4a;
-    overflow: auto;
-}
-
-
-
-
-#messageRuslt1 h1{
-
-    position: relative;
-    left: 67%;
-    top: 20px;
     font-size: 20px;
     color: #4d4a4a;
     border-bottom: 2px solid #4CAF50;
     display: inline;
-    padding-bottom: 5px;
+    padding-bottom: 3px;
+
 }
 
 
 
-#messageRuslt{
+
+#messageRuslt1 {
+    background-color: #ffffff;
+    position: absolute;
+    right:520px;
+    top: 20px;
+    width:500px;
+    height:800px;
+    border: 10px solid #fbb7b7;
+    border-radius: 4px;
+    display: none;
+    text-align: right;
+    overflow: auto;
+}
+
+
+#messageRuslt1 h1 {
+
     position: relative;
-    /*right: 115px;*/
-    top: 45px;
+    left: -155px;
+    top: 40px;
+    font-size: 30px;
+    color: #4d4a4a;
+    /* border-bottom: 10px solid #fe0000; */
+    display: inline;
+    padding-bottom: 3px;
+
+}
+
+
+#messageRuslt {
+    position: relative;
+/*/right: 115px;/*/
+top: 45px;
     font-size: 17px;
     color: #4d4a4a;
     text-align: right;
@@ -169,78 +194,61 @@ font-size: 20px;
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-.upFile{
-    background-color: white;
-    border: 1px solid #bdb8b8;
-    border-radius: 4px;
+.titelUpFile {
     position: absolute;
-    right:45px;
-    top: 385px;
-    width: 450px;
-    height: 250px;
-
+    bottom:320px;
 }
 
 
+.upFile {
+    background-color: white;
+    border-radius: 4px;
+/display: none;/
+}
 
 
-.upFile h1 {
-    position: relative;
+#titelFile {
+    position: absolute;
     left: 85%;
-    top: 7%;
+    top: 1%;
     font-size: 20px;
     color: #4d4a4a;
     border-bottom: 2px solid #4CAF50;
     display: inline;
-    padding-bottom: 5px;
-
+    padding-bottom: 3px;
+    display: none;
 }
-
-
 
 
 #drop-zone {
-    border: 2px dashed #c4bfbf;
-    border-radius: 70px;
+    border: 2px dashed #8430a2;
+    border-radius: 10px;
     padding: 3px;
     text-align: center;
     cursor: pointer;
-    width: 85%;
-    height: 70%;
     background-color: white;
-    color:  #4d4a4a;
+    color: #4d4a4a;
     position: absolute;
-    left: 6%;
-    top: 22%;
+    left: 50%;
+    top:60%;
+    width: 385px;
+    height: 280px;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+
+
+
 }
 
 
-
 #drop-zone:hover {
-    border-color: black;
+    border-color: #317f81;
 }
 
 #file-input {
     display: none;
 }
 
-/*#upload-icon {*/
-/*    font-size: 15px;*/
-/*    cursor: pointer;*/
-/*    color: #333;*/
-/*}*/
 
 #file-name {
     margin-top: 50px;
@@ -250,16 +258,116 @@ font-size: 20px;
 
 #upload-icon {
     position: absolute;
-    right: 41%;
-    bottom: 27%;
-    width: 70px;
-    height: 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width:100%;
+    height: 100%;
+    background-color: white;
+    color: white;
+    border: 2px solid #ffffff;
+    border-radius: 15px;
+}
+
+
+
+#upload-iconDiv {
+    position: absolute;
+    top: 64%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 35px;
     background-color: #3f4fd3;
     color: white;
     border: 2px solid #ffffff;
-    border-radius: 6px;
+    border-radius: 15px;
 }
 
-.files{
-    top: 500px;
+
+
+.iconAndhandleDrop {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    padding: 20px;
+}
+
+
+
+
+
+#retailer {
+
+    text-align: right;
+
+}
+
+
+#messageRusltFromFile {
+    background-color: white;
+    position: absolute;
+    right: 511px;
+    top: 385px;
+    width: 230px;
+    height: 250px;
+    border: 1px solid #bdb8b8;
+}
+
+
+#messageRusltFromFile1 h {
+    position: absolute;
+    right: 540px;
+    top: 405px;
+    font-size: 20px;
+    color: #4d4a4a;
+    border-bottom: 2px solid #4CAF50;
+    display: inline;
+    padding-bottom: 3px;
+    font-weight: bold;
+}
+
+
+.custom-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+#selectedValue {
+    padding: 10px;
+    width: 200px;
+}
+
+.options-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    background-color: #d3d3d3;
+    border: 1px solid #ccc;
+    color: black;
+}
+
+.options-list li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.options-list li:hover {
+    background-color: #020202;
+}
+
+
+.inputBox i{
+    display: none;
+}
+
+
+.moreFile{
+    display: none;
 }
