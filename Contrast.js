@@ -57,6 +57,7 @@ function darkMode(){
     fileChek.style.backgroundColor = "#282828";
     fileChek.style.color = "white";
     fileChek.style.border = "2px solid #d5d2d2";
+    fileChek.style.height = "607px";
     messageRuslt1.style.backgroundColor = "#282828";
     reulstTest.style.color = "white";
     filename.style.color = "#fc6a6a";
@@ -121,7 +122,8 @@ function brightMode(){
 
     fileChek.style.backgroundColor = "#fffcfc";
     fileChek.style.color = " #0056ff";
-    fileChek.style.border = "7px solid #d5d2d2";
+    fileChek.style.border = "5px solid #d5d2d2";
+    fileChek.style.height = "600px";
 
     messageRuslt1.style.backgroundColor = "#ffffff";
     reulstTest.style.color = "#4d4a4a";
