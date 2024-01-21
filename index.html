@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <title>edi</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script type="text/javascript" src="js.js"></script>
+    <script type="text/javascript" src="main.js"></script>
     <script type="text/javascript" src="chekFileFletSupdes.js"></script>
     <script type="text/javascript" src="chekFileHashavshevtSupdes.js"></script>
+    <script type="text/javascript" src="Contrast.js"></script>
     <!--    Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -74,7 +75,7 @@
 </div>
 <br>
 <!--Show the user the choice of Retailer and supplier selected from a json file-->
-<div id="inputBoxData">
+<div id="inputBoxData" >
     <label for="selectedValue"></label>
     <input type="text" id="selectedValue" readonly style="position: absolute;top: 183px; right: 220px;
         outline: none; text-align:right;padding: 0px;width: 190px;height: 13px; color: #2d3cc7;font-weight: bold;border:none;">
@@ -102,9 +103,9 @@
         <div id="drop-zone" ondrop="handleDrop(event)" ondragover="handleDragOver(event)">
             <!--Paragraph of the initial screen-->
             <div class="titelUpFile" style="display: block">
-                <h1 style="font-size: 40px;color: #858a85;;position: relative;right: 6px"> ברוכים הבאים למסך EDI בדיקות
-                    מסרי</h1>
-                <p7 style="font-size:23px;color: #858a85;position: relative;top:-20px;right: 9px">אנא בחרו או גררו קובץ
+                <h1 style="font-size: 40px;color: #858a85;position: relative;right: 6px" id="titelUpFileH"> ברוכים הבאים למסך EDI בדיקות
+                    מסרי </h1>
+                <p7 style="font-size:23px;color: #858a85;position: relative;top:-20px;right: 9px" id="titelUpFileP">אנא בחרו או גררו קובץ
                     שברצונכם לבדוק
                 </p7>
             </div>
@@ -113,7 +114,7 @@
             <!--File upload icon+css-->
             <div class="iconAndhandleDrop">
                 <i class="material-icons upload-icon" id="icons" onclick="triggerFileInput()"
-                   style="color: #4CAF50;font-size: 70px;position: relative;top:15px">cloud_upload</i>
+                 >cloud_upload</i>
                 <p style="position: relative;top:-10px;font-size: 20px;" id="iconAndhandleDropP"
                    onclick="triggerFileInput()">גרור קובץ לכאן
                     <br>או</p>
@@ -238,8 +239,8 @@
 
 
 
-
-
+<div id="Contrastdark" onclick="darkMode()">dark mode</div>
+<div id="Contrastbright" onclick="brightMode()">light mode</div>
 
 
 
