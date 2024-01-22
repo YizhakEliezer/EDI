@@ -15,6 +15,11 @@
 
 <!--Activation of the test by an event when the user presses enter-->
 <body class="body" onkeydown="checkEnter(event)">
+      <label class="toggle-container">
+        <input type="checkbox" onclick="toggleFunction()">
+      
+        <span class="toggle-slider" ></span>
+      </label>
 <!--select of message types-->
 <div class="AllData">
     <h1>פרטי התעודה</h1>
@@ -245,7 +250,20 @@
 
 
 <script>
-
+    function toggleFunction() {
+    var checkBox = document.querySelector('input[type="checkbox"]');
+    if (checkBox.checked) {
+      // Your function when the switch is in the "ON" position
+      console.log("Switch is ON");
+     darkMode();
+   
+    } else {
+      // Your function when the switch is in the "OFF" position
+      console.log("Switch is OFF");
+      brightMode();
+    }
+    
+  }
 
 
     function checkEnter(event) {
